@@ -1,0 +1,1095 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#344e41">
+  <title>The Sage Garden | Personal Website</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --sage: #a3b18a;
+      --olive: #6b7d52;
+      --forest: #344e41;
+      --army: #283d32;
+      --cream: #f4f2e9;
+      --beige: #e5e2d4;
+      --white: #fffef9;
+      --text: #283d32;
+      --muted: #71806a;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: var(--sans);
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(244,242,233,.9);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(52,78,65,.1);
+    }
+
+    nav {
+      min-height: 75px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: var(--serif);
+      font-size: 23px;
+      font-weight: 700;
+      color: var(--forest);
+    }
+
+    .logo span {
+      color: var(--olive);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      font-size: 12px;
+      color: var(--forest);
+    }
+
+    .nav-links a:hover {
+      color: var(--olive);
+    }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: var(--forest);
+      font-size: 25px;
+    }
+
+    /* GENERAL */
+    section {
+      padding: 85px 0;
+      scroll-margin-top: 70px;
+    }
+
+    .section-label {
+      color: var(--olive);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 10px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(30px, 5vw, 45px);
+      font-weight: 500;
+      color: var(--forest);
+      margin-bottom: 30px;
+    }
+
+    .card {
+      border-radius: 22px;
+      padding: 28px;
+      transition: transform .35s ease,
+                  box-shadow .35s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 18px 35px rgba(40,61,50,.12);
+    }
+
+    .light-card {
+      background: var(--white);
+    }
+
+    .sage-card {
+      background: #dce3d1;
+    }
+
+    .dark-card {
+      background: var(--forest);
+      color: white;
+    }
+
+    .olive-card {
+      background: var(--olive);
+      color: white;
+    }
+
+    .card h3 {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 500;
+      margin: 12px 0;
+    }
+
+    .card p {
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .icon {
+      font-size: 25px;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 65px 0 80px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 22px;
+    }
+
+    .hero-main {
+      background: var(--sage);
+      border-radius: 30px;
+      padding: 42px;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::after {
+      content: "✿";
+      position: absolute;
+      font-size: 160px;
+      right: 15px;
+      bottom: -40px;
+      color: rgba(40,61,50,.08);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .hero-main .eyebrow {
+      letter-spacing: 4px;
+      font-size: 10px;
+      color: var(--army);
+      font-weight: 700;
+    }
+
+    .hero-main h1 {
+      font-family: var(--serif);
+      font-size: clamp(42px, 6vw, 67px);
+      line-height: 1.12;
+      color: var(--army);
+      margin: 22px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-main h1 span {
+      font-style: italic;
+      color: var(--white);
+    }
+
+    .hero-main p {
+      max-width: 390px;
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--army);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .btn {
+      display: inline-block;
+      border-radius: 50px;
+      padding: 13px 22px;
+      font-size: 11px;
+      font-weight: 700;
+      transition: .3s;
+      border: none;
+    }
+
+    .btn-dark {
+      background: var(--army);
+      color: white;
+    }
+
+    .btn-light {
+      background: var(--white);
+      color: var(--forest);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      opacity: .85;
+    }
+
+    .hero-photo {
+      border-radius: 30px;
+      overflow: hidden;
+      min-height: 420px;
+      background: #c5cfb6;
+      position: relative;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      object-fit: cover;
+      display: block;
+      transition: transform .8s;
+    }
+
+    .hero-photo:hover img {
+      transform: scale(1.05);
+    }
+
+    .photo-caption {
+      position: absolute;
+      bottom: 18px;
+      left: 18px;
+      background: rgba(244,242,233,.9);
+      padding: 12px 17px;
+      border-radius: 13px;
+      font-size: 11px;
+      color: var(--forest);
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .about-main {
+      background: var(--white);
+    }
+
+    .about-main p {
+      margin-top: 15px;
+    }
+
+    .about-quote {
+      background: var(--army);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 240px;
+    }
+
+    .about-quote h3 {
+      font-size: 29px;
+      line-height: 1.5;
+    }
+
+    .about-quote span {
+      color: var(--sage);
+      font-style: italic;
+    }
+
+    /* EDUCATION */
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .education-card {
+      border-left: 4px solid var(--olive);
+      background: var(--white);
+    }
+
+    .education-card small {
+      color: var(--olive);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .skill-card {
+      text-align: center;
+      background: var(--white);
+      padding: 28px 12px;
+    }
+
+    .skill-card .icon {
+      font-size: 30px;
+    }
+
+    .skill-card h3 {
+      font-size: 17px;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .project-card {
+      padding: 0;
+      overflow: hidden;
+      background: var(--white);
+      cursor: pointer;
+    }
+
+    .project-image {
+      height: 180px;
+      background: var(--beige);
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .5s;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .project-info {
+      padding: 20px;
+    }
+
+    .project-info small {
+      color: var(--olive);
+      font-size: 10px;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    .project-info h3 {
+      font-size: 21px;
+    }
+
+    /* JOURNEY */
+    .journey-card {
+      background: var(--sage);
+      color: var(--army);
+    }
+
+    .journey-item {
+      padding: 17px 0;
+      border-bottom: 1px solid rgba(40,61,50,.2);
+    }
+
+    .journey-item:last-child {
+      border: none;
+    }
+
+    .journey-item small {
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    /* INTERESTS */
+    .interest-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .interest-card {
+      background: var(--beige);
+      text-align: center;
+    }
+
+    /* CONTACT */
+    .contact-box {
+      background: var(--army);
+      color: white;
+      text-align: center;
+      border-radius: 30px;
+      padding: 55px 25px;
+    }
+
+    .contact-box h2 {
+      font-family: var(--serif);
+      font-size: clamp(35px, 6vw, 52px);
+      margin: 12px 0;
+    }
+
+    .contact-box p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: #e0e5d8;
+      max-width: 480px;
+      margin: auto;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 27px;
+    }
+
+    .social-links a {
+      background: var(--sage);
+      color: var(--army);
+      border-radius: 50px;
+      padding: 12px 21px;
+      font-size: 11px;
+      font-weight: 700;
+      transition: .3s;
+    }
+
+    .social-links a:hover {
+      background: white;
+      transform: translateY(-4px);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--army);
+      color: #dce3d1;
+      text-align: center;
+      padding: 22px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      margin-top: 40px;
+    }
+
+    /* POPUP */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(20,35,27,.8);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal.active {
+      display: flex;
+      animation: fadeIn .3s;
+    }
+
+    .modal-content {
+      background: var(--cream);
+      max-width: 480px;
+      width: 100%;
+      border-radius: 24px;
+      padding: 32px;
+      position: relative;
+      animation: popIn .35s;
+    }
+
+    .modal-content h3 {
+      font-family: var(--serif);
+      font-size: 27px;
+      margin-bottom: 12px;
+      color: var(--forest);
+    }
+
+    .modal-content p {
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 13px;
+      right: 18px;
+      border: none;
+      background: none;
+      font-size: 25px;
+      color: var(--forest);
+    }
+
+    /* BACK TO TOP */
+    .top-btn {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 50%;
+      background: var(--forest);
+      color: white;
+      font-size: 19px;
+      z-index: 90;
+      opacity: 0;
+      pointer-events: none;
+      transition: .3s;
+    }
+
+    .top-btn.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-16px) rotate(10deg); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes popIn {
+      from { transform: scale(.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* MOBILE */
+    @media(max-width: 760px) {
+      nav {
+        min-height: 65px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: var(--cream);
+        padding: 25px;
+        flex-direction: column;
+        gap: 20px;
+        border-bottom: 1px solid var(--beige);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-main {
+        min-height: 370px;
+        padding: 28px;
+      }
+
+      .hero-photo,
+      .hero-photo img {
+        min-height: 350px;
+        max-height: 440px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .education-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .interest-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .card {
+        padding: 23px;
+      }
+    }
+
+    @media(prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#home" class="logo">the sage<span>.</span></a>
+
+        <button class="menu-btn" id="menuBtn"
+          aria-label="Buka menu" aria-expanded="false">☰</button>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero container" id="home">
+      <div class="hero-grid">
+        <div class="hero-main reveal">
+          <span class="eyebrow">WELCOME TO MY LITTLE SPACE</span>
+
+          <h1>Hello, I'm <span>Nama Kamu.</span></h1>
+
+          <p>
+            A little space to share my story, creativity,
+            interests, and journey. Thank you for stopping by!
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#about" class="btn btn-dark">EXPLORE MORE ↗</a>
+            <a href="#contact" class="btn btn-light">LET'S CONNECT</a>
+          </div>
+        </div>
+
+        <div class="hero-photo reveal">
+          <!-- GANTI FOTO DENGAN FILE FOTO KAMU -->
+          <img src="foto-profil.jpg"
+               alt="Foto profil saya"
+               onerror="this.style.display='none'">
+
+          <div class="photo-caption">
+            ✿ A little introduction of me
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="container" id="about">
+      <div class="reveal">
+        <div class="section-label">01 — ABOUT ME</div>
+        <h2 class="section-title">Get to know me.</h2>
+      </div>
+
+      <div class="about-grid">
+        <article class="card about-main reveal">
+          <span class="icon">🌿</span>
+          <h3>A little story about me</h3>
+          <p>
+            Halo! Aku adalah seorang mahasiswa yang memiliki
+            ketertarikan pada dunia komunikasi, media digital,
+            kreativitas, dan berbagai hal baru.
+            Aku senang belajar, mencoba pengalaman baru,
+            serta mengembangkan kemampuan diri.
+          </p>
+        </article>
+
+        <article class="card about-quote reveal">
+          <div class="section-label" style="color:#a3b18a">
+            MY PERSONAL MOTTO
+          </div>
+          <h3>
+            "Growing at my own pace,
+            <span>becoming my own version.</span>"
+          </h3>
+        </article>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="container" id="education">
+      <div class="reveal">
+        <div class="section-label">02 — EDUCATION</div>
+        <h2 class="section-title">My academic journey.</h2>
+      </div>
+
+      <div class="education-grid">
+        <article class="card education-card reveal">
+          <small>2025 — PRESENT</small>
+          <h3>Nama Universitas</h3>
+          <p>Program Studi / Jurusan</p>
+          <p>Informasi pendidikan saat ini.</p>
+        </article>
+
+        <article class="card education-card reveal">
+          <small>PREVIOUS EDUCATION</small>
+          <h3>Nama Sekolah</h3>
+          <p>Jenjang pendidikan sebelumnya.</p>
+          <p>Tambahkan tahun pendidikan.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="container" id="skills">
+      <div class="reveal">
+        <div class="section-label">03 — MY SKILLS</div>
+        <h2 class="section-title">Things I can do.</h2>
+      </div>
+
+      <div class="skills-grid">
+        <article class="card skill-card reveal">
+          <div class="icon">📷</div>
+          <h3>Photography</h3>
+          <p>Visual storytelling</p>
+        </article>
+
+        <article class="card skill-card reveal">
+          <div class="icon">🎬</div>
+          <h3>Video Editing</h3>
+          <p>Creative production</p>
+        </article>
+
+        <article class="card skill-card reveal">
+          <div class="icon">✍️</div>
+          <h3>Copywriting</h3>
+          <p>Creative writing</p>
+        </article>
+
+        <article class="card skill-card reveal">
+          <div class="icon">💻</div>
+          <h3>Digital Media</h3>
+          <p>Content management</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="container" id="projects">
+      <div class="reveal">
+        <div class="section-label">04 — MY PROJECTS</div>
+        <h2 class="section-title">A collection of my works.</h2>
+      </div>
+
+      <div class="projects-grid">
+
+        <article class="card project-card reveal"
+          data-title="Creative Project"
+          data-desc="Tambahkan cerita mengenai karya, proses pengerjaan, tujuan, dan hasil dari proyek ini.">
+          <div class="project-image">
+            <img src="project1.jpg" alt="Project 1"
+              onerror="this.style.display='none'">
+          </div>
+          <div class="project-info">
+            <small>01 / CREATIVE</small>
+            <h3>Creative Project</h3>
+            <p>Click to explore ↗</p>
+          </div>
+        </article>
+
+        <article class="card project-card reveal"
+          data-title="Digital Content"
+          data-desc="Ceritakan konten digital atau desain media sosial yang pernah kamu buat.">
+          <div class="project-image">
+            <img src="project2.jpg" alt="Project 2"
+              onerror="this.style.display='none'">
+          </div>
+          <div class="project-info">
+            <small>02 / DIGITAL MEDIA</small>
+            <h3>Digital Content</h3>
+            <p>Click to explore ↗</p>
+          </div>
+        </article>
+
+        <article class="card project-card reveal"
+          data-title="Photography"
+          data-desc="Tambahkan dokumentasi foto, konsep visual, dan pengalaman fotografimu.">
+          <div class="project-image">
+            <img src="project3.jpg" alt="Project 3"
+              onerror="this.style.display='none'">
+          </div>
+          <div class="project-info">
+            <small>03 / VISUAL</small>
+            <h3>Photography</h3>
+            <p>Click to explore ↗</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- JOURNEY -->
+    <section class="container" id="journey">
+      <div class="reveal">
+        <div class="section-label">05 — MY JOURNEY</div>
+        <h2 class="section-title">Little steps, big growth.</h2>
+      </div>
+
+      <article class="card journey-card reveal">
+        <div class="journey-item">
+          <small>2025 — PRESENT</small>
+          <h3>Learning & Growing</h3>
+          <p>Menjalani perkuliahan dan mengembangkan diri.</p>
+        </div>
+
+        <div class="journey-item">
+          <small>MY EXPERIENCE</small>
+          <h3>Creative Exploration</h3>
+          <p>Belajar membuat konten, mengelola media, dan berkarya.</p>
+        </div>
+
+        <div class="journey-item">
+          <small>THE NEXT CHAPTER</small>
+          <h3>More to Discover</h3>
+          <p>Terus mencoba hal baru dan memperluas pengalaman.</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- INTERESTS -->
+    <section class="container" id="interests">
+      <div class="reveal">
+        <div class="section-label">06 — MY INTERESTS</div>
+        <h2 class="section-title">Things I love.</h2>
+      </div>
+
+      <div class="interest-grid">
+        <article class="card interest-card reveal">
+          <div class="icon">🎨</div>
+          <h3>Design</h3>
+          <p>Visual creativity</p>
+        </article>
+
+        <article class="card interest-card reveal">
+          <div class="icon">🎧</div>
+          <h3>Music</h3>
+          <p>Sounds and stories</p>
+        </article>
+
+        <article class="card interest-card reveal">
+          <div class="icon">📸</div>
+          <h3>Photography</h3>
+          <p>Capturing moments</p>
+        </article>
+
+        <article class="card interest-card reveal">
+          <div class="icon">🌱</div>
+          <h3>Learning</h3>
+          <p>Growing every day</p>
+        </article>
+
+        <article class="card interest-card reveal">
+          <div class="icon">📚</div>
+          <h3>Reading</h3>
+          <p>Exploring ideas</p>
+        </article>
+
+        <article class="card interest-card reveal">
+          <div class="icon">🌷</div>
+          <h3>Exploring</h3>
+          <p>Finding inspiration</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="container" id="contact">
+      <div class="contact-box reveal">
+        <div class="section-label" style="color:#a3b18a">
+          07 — GET IN TOUCH
+        </div>
+
+        <h2>Let's create something meaningful.</h2>
+
+        <p>
+          Thank you for visiting my little space.
+          Feel free to connect with me through these platforms!
+        </p>
+
+        <div class="social-links">
+          <a href="https://instagram.com/USERNAME"
+             target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+
+          <a href="mailto:EMAILKAMU@example.com">Email ↗</a>
+
+          <a href="https://github.com/USERNAME"
+             target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 THE SAGE GARDEN · MADE WITH LOVE
+  </footer>
+
+  <!-- PROJECT POPUP -->
+  <div class="modal" id="projectModal" role="dialog"
+    aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <button class="close-modal" id="closeModal"
+        aria-label="Tutup popup">&times;</button>
+      <div class="section-label">PROJECT DETAILS</div>
+      <h3 id="modalTitle">Project Title</h3>
+      <p id="modalDesc">Project description.</p>
+    </div>
+  </div>
+
+  <!-- BACK TO TOP -->
+  <button class="top-btn" id="topBtn"
+    aria-label="Kembali ke atas">↑</button>
+
+  <script>
+    // MOBILE MENU
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('active');
+      menuBtn.setAttribute('aria-expanded', isOpen);
+      menuBtn.textContent = isOpen ? '×' : '☰';
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.textContent = '☰';
+      });
+    });
+
+    // SCROLL REVEAL
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(element => {
+      observer.observe(element);
+    });
+
+    // PROJECT POPUP
+    const modal = document.getElementById('projectModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('click', () => {
+        modalTitle.textContent = card.dataset.title;
+        modalDesc.textContent = card.dataset.desc;
+        modal.classList.add('active');
+        document.getElementById('closeModal').focus();
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove('active');
+    }
+
+    document.getElementById('closeModal')
+      .addEventListener('click', closeModal);
+
+    modal.addEventListener('click', event => {
+      if (event.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeModal();
+    });
+
+    // BACK TO TOP
+    const topBtn = document.getElementById('topBtn');
+
+    window.addEventListener('scroll', () => {
+      topBtn.classList.toggle('show', window.scrollY > 400);
+    });
+
+    topBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>
